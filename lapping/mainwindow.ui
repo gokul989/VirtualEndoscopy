@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>592</width>
+    <height>384</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>GiTrack Viewer</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="lblView">
+        <property name="text">
+         <string>View</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rdbModel">
+        <property name="text">
+         <string>Model</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rdbExternal">
+        <property name="text">
+         <string>External</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rdbInternal">
+        <property name="text">
+         <string>Internal</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnAxis">
+        <property name="text">
+         <string>Axis</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblLights">
+        <property name="text">
+         <string>Lights</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chkSun">
+        <property name="text">
+         <string>Sun</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chkBulb">
+        <property name="text">
+         <string>Bulb</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chkTexture">
+        <property name="text">
+         <string>Texture</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chkGraph">
+        <property name="text">
+         <string>Graph</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnQuit">
+        <property name="text">
+         <string>&amp;Quit</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="GLWidget" name="widget" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>592</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>GLWidget</class>
+   <extends>QWidget</extends>
+   <header>glwidget.h</header>
+   <container>1</container>
+   <slots>
+    <signal>updateStatus(QString)</signal>
+    <signal>sunStatusToggled()</signal>
+    <signal>bulbStatusToggled()</signal>
+    <slot>toggleAxis()</slot>
+    <slot>handleSunStatusChanged(int)</slot>
+    <slot>handleBulbStatusChanged(int)</slot>
+    <slot>toggleWalkthrough()</slot>
+    <slot>handleWSpeedChange(double)</slot>
+    <slot>handleModelMode()</slot>
+    <slot>handleExternalMode()</slot>
+    <slot>handleInternalMode()</slot>
+    <slot>handleTextureStatusChanged(int)</slot>
+    <slot>handleGraphStatusChanged(int)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btnQuit</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>68</x>
+     <y>353</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>64</x>
+     <y>284</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAxis</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>toggleAxis()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>135</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>updateStatus(QString)</signal>
+   <receiver>statusBar</receiver>
+   <slot>message(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>286</x>
+     <y>272</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>284</x>
+     <y>383</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkSun</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>widget</receiver>
+   <slot>handleSunStatusChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>72</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>115</x>
+     <y>212</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkBulb</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>widget</receiver>
+   <slot>handleBulbStatusChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>84</x>
+     <y>227</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>130</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>sunStatusToggled()</signal>
+   <receiver>chkSun</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>82</x>
+     <y>204</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>bulbStatusToggled()</signal>
+   <receiver>chkBulb</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>102</x>
+     <y>223</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>79</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rdbModel</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>handleModelMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>53</x>
+     <y>67</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>124</x>
+     <y>69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rdbExternal</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>handleExternalMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>77</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>126</x>
+     <y>91</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rdbInternal</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>handleInternalMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>110</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkTexture</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>widget</receiver>
+   <slot>handleTextureStatusChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>71</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>112</x>
+     <y>253</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkGraph</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>widget</receiver>
+   <slot>handleGraphStatusChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>46</x>
+     <y>279</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>108</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
